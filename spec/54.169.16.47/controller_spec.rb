@@ -5,14 +5,14 @@ require 'rspec/its'
 describe file('/var/lib/dpkg/available') do
 	it { should contain 'Package: cinder-api' }               # Cinder storage service - API server
 	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
-	it { should contain 'cinder-common' }                     # Cinder storage service - common files
-	it { should contain '1:2014.1.2-0ubuntu1' }
-	it { should contain 'cinder-scheduler' }                  # Cinder storage service - Scheduler server
-	it { should contain '1:2014.1.2-0ubuntu1' }
-	it { should contain 'cinder-volume' }                     # Cinder storage service - Volume server
-	it { should contain '1:2014.1.2-0ubuntu1' }
+	it { should contain 'Package: cinder-common' }            # Cinder storage service - common files
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
+	it { should contain 'Package: cinder-scheduler' }         # Cinder storage service - Scheduler server
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
+	it { should contain 'Package: cinder-volume' }            # Cinder storage service - Volume server
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
 	it { should contain 'Package: diamond' }                  # System statistics collector for Graphite.
-	it { should contain '3.4.256' }
+	it { should contain 'Version: 3.4.271' }
   it { should contain 'Package: glance' }                   # OpenStack Image Registry and Delivery Service - Daemons
   it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
   it { should contain 'Package: glance-api' }               # OpenStack Image Registry and Delivery Service - API
@@ -37,22 +37,22 @@ describe file('/var/lib/dpkg/available') do
   it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
   it { should contain 'Package: nova-scheduler' }           # OpenStack Compute - virtual machine scheduler
   it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }   
-  it { should contain 'Package: openstack-dashboard' }      # django web interface to Openstack            
-  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
-  it { should contain 'Package: python-ceilometerclient' }  # Client library for Openstack ceilometer server.        
-  it { should contain 'Version: 1.0.8-0ubuntu1' }
-	it { should contain 'Pacakge: python-cinder '}            # Cinder Python libraries
-	it { should contain 'Version: 1:2014.1.2-0ubuntu1'}           
+  #it { should contain 'Package: openstack-dashboard' }      # django web interface to Openstack            
+  #it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  #it { should contain 'Package: python-ceilometerclient' }  # Client library for Openstack ceilometer server.        
+  #it { should contain 'Version: 1.0.8-0ubuntu1' }
+	it { should contain 'Package: python-cinder' }            # Cinder Python libraries
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
   it { should contain 'Package: python-cinderclient' }      # python bindings to the OpenStack Volume API        
   it { should contain 'Version: 1:1.0.8-0ubuntu1' }         
-  it { should contain 'Package: python-django-horizon' }    # Django module providing web based interaction with OpenStack        
-  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }    
+  #it { should contain 'Package: python-django-horizon' }    # Django module providing web based interaction with OpenStack        
+  #it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }    
   it { should contain 'Package: python-glance' }            # OpenStack Image Registry and Delivery Service - Python library        
   it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
   it { should contain 'Package: python-glanceclient' }      # Client library for Openstack glance server.        
   it { should contain 'Version: 1:0.12.0-0ubuntu1' }        
-  it { should contain 'Package: python-heatclient' }        # client library and CLI for OpenStack Heat        
-  it { should contain 'Version: 0.2.8-0ubuntu1' }           
+  #it { should contain 'Package: python-heatclient' }        # client library and CLI for OpenStack Heat        
+  #it { should contain 'Version: 0.2.8-0ubuntu1' }           
   it { should contain 'Package: python-keystone' }          # OpenStack identity service - Python library        
   it { should contain 'Version: 1:2014.1.2.1-0ubuntu1.1' }  
   it { should contain 'Package: python-keystoneclient' }    # Client library for OpenStack Identity API        
@@ -63,22 +63,22 @@ describe file('/var/lib/dpkg/available') do
   it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }    
   it { should contain 'Package: python-novaclient' }        # client library for OpenStack Compute API        
   it { should contain 'Version: 1:2.17.0-0ubuntu1' }        
-  it { should contain 'Package: python-openstack-auth' }    # A django authentication backend for Openstack
-  it { should contain 'Version: 1.1.3-0ubuntu3' }           
+  #it { should contain 'Package: python-openstack-auth' }    # A django authentication backend for Openstack
+  #it { should contain 'Version: 1.1.3-0ubuntu3' }           
   it { should contain 'Package: python-oslo.config' }       # Common code for Openstack Projects (configuration API)        
   it { should contain 'Version: 1:1.2.1-0ubuntu2' }         
   it { should contain 'Package: python-swiftclient' }       # Client library for Openstack Swift API.        
   it { should contain 'Version: 1:2.0.3-0ubuntu1' }         
-  it { should contain 'Package: python-troveclient' }       # Client library for Openstack Trove API.        
-  it { should contain 'Version: 1:1.0.3-0ubuntu3' }
+  #it { should contain 'Package: python-troveclient' }       # Client library for Openstack Trove API.        
+  #it { should contain 'Version: 1:1.0.3-0ubuntu3' }
 end
 
 # CHECK PACKAGES - MySQL
 describe file('/var/lib/dpkg/available') do
   it { should contain 'Package: libdbd-mysql-perl' }        # Perl5 database interface to the MySQL database        
   it { should contain 'Version: 4.025-1' }
-  it { should contain 'Package: libmysqlclient18:amd64' }   # MySQL database client library        
-  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  #it { should contain 'Package: libmysqlclient18:amd64' }   # MySQL database client library        
+  #it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
   it { should contain 'Package: mysql-client-5.5' }         # MySQL database client binaries
   it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }         
   it { should contain 'Package: mysql-client-core-5.5' }    # MySQL database core client binaries
@@ -431,8 +431,11 @@ end
 
 describe package('keystone') do
   it { should be_installed }
-  it { should be_enabled   }
-  it { should be_running   }
+end
+
+describe package('keystone') do
+  # it { should be_enabled   }
+  # it { should be_running   }
 end
 
 describe service('glance-api') do
@@ -442,14 +445,20 @@ end
 
 describe package('rabbitmq-server') do
   it { should be_installed }
-  it { should be_enabled   }
-  it { should be_running   }
+end
+
+describe package('rabbitmq-server') do
+  # it { should be_enabled   }
+  # it { should be_running   }
 end
 
 describe package('cinder-scheduler') do
   it { should be_installed }
+end
+
+describe package('cinder-scheduler') do
   it { should be_enabled   }
-  it { should be_running   }
+  # it { should be_running   }
 end
 
 describe service('cinder-volume') do
