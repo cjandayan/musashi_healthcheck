@@ -1,21 +1,123 @@
 require 'spec_helper'
 require 'rspec/its'
 
+# CHECK PACKAGES - Openstack 
+describe file('/var/lib/dpkg/available') do
+	it { should contain 'Package: cinder-api' }               # Cinder storage service - API server
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1' }
+	it { should contain 'cinder-common' }                     # Cinder storage service - common files
+	it { should contain '1:2014.1.2-0ubuntu1' }
+	it { should contain 'cinder-scheduler' }                  # Cinder storage service - Scheduler server
+	it { should contain '1:2014.1.2-0ubuntu1' }
+	it { should contain 'cinder-volume' }                     # Cinder storage service - Volume server
+	it { should contain '1:2014.1.2-0ubuntu1' }
+	it { should contain 'Package: diamond' }                  # System statistics collector for Graphite.
+	it { should contain '3.4.256' }
+  it { should contain 'Package: glance' }                   # OpenStack Image Registry and Delivery Service - Daemons
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: glance-api' }               # OpenStack Image Registry and Delivery Service - API
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: glance-common' }            # OpenStack Image Registry and Delivery Service - Common
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: glance-registry' }          # OpenStack Image Registry and Delivery Service - Registry
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: keystone' }                 # OpenStack identity service - Daemons
+  it { should contain 'Version: 1:2014.1.2.1-0ubuntu1.1' }
+  it { should contain 'Package: nova-api' }                 # OpenStack Compute - API frontend            
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: nova-cert' }                # OpenStack Compute - certificate management          
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: nova-common' }              # OpenStack Compute - common files          
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }  
+  it { should contain 'Package: nova-conductor' }           # OpenStack Compute - conductor service
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }  
+  it { should contain 'Package: nova-consoleauth' }         # OpenStack Compute - Console Authenticator
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: nova-novncproxy' }          # OpenStack Compute - NoVNC proxy
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: nova-scheduler' }           # OpenStack Compute - virtual machine scheduler
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }   
+  it { should contain 'Package: openstack-dashboard' }      # django web interface to Openstack            
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: python-ceilometerclient' }  # Client library for Openstack ceilometer server.        
+  it { should contain 'Version: 1.0.8-0ubuntu1' }
+	it { should contain 'Pacakge: python-cinder '}            # Cinder Python libraries
+	it { should contain 'Version: 1:2014.1.2-0ubuntu1'}           
+  it { should contain 'Package: python-cinderclient' }      # python bindings to the OpenStack Volume API        
+  it { should contain 'Version: 1:1.0.8-0ubuntu1' }         
+  it { should contain 'Package: python-django-horizon' }    # Django module providing web based interaction with OpenStack        
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }    
+  it { should contain 'Package: python-glance' }            # OpenStack Image Registry and Delivery Service - Python library        
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }
+  it { should contain 'Package: python-glanceclient' }      # Client library for Openstack glance server.        
+  it { should contain 'Version: 1:0.12.0-0ubuntu1' }        
+  it { should contain 'Package: python-heatclient' }        # client library and CLI for OpenStack Heat        
+  it { should contain 'Version: 0.2.8-0ubuntu1' }           
+  it { should contain 'Package: python-keystone' }          # OpenStack identity service - Python library        
+  it { should contain 'Version: 1:2014.1.2.1-0ubuntu1.1' }  
+  it { should contain 'Package: python-keystoneclient' }    # Client library for OpenStack Identity API        
+  it { should contain 'Version: 1:0.7.1-ubuntu1' }          
+  it { should contain 'Package: python-neutronclient' }     # client - Neutron is a virtual network service for Openstack        
+  it { should contain 'Version: 1:2.3.4-0ubuntu1' }         
+  it { should contain 'Package: python-nova' }              # OpenStack Compute Python libraries        
+  it { should contain 'Version: 1:2014.1.2-0ubuntu1.1' }    
+  it { should contain 'Package: python-novaclient' }        # client library for OpenStack Compute API        
+  it { should contain 'Version: 1:2.17.0-0ubuntu1' }        
+  it { should contain 'Package: python-openstack-auth' }    # A django authentication backend for Openstack
+  it { should contain 'Version: 1.1.3-0ubuntu3' }           
+  it { should contain 'Package: python-oslo.config' }       # Common code for Openstack Projects (configuration API)        
+  it { should contain 'Version: 1:1.2.1-0ubuntu2' }         
+  it { should contain 'Package: python-swiftclient' }       # Client library for Openstack Swift API.        
+  it { should contain 'Version: 1:2.0.3-0ubuntu1' }         
+  it { should contain 'Package: python-troveclient' }       # Client library for Openstack Trove API.        
+  it { should contain 'Version: 1:1.0.3-0ubuntu3' }
+end
+
+# CHECK PACKAGES - MySQL
+describe file('/var/lib/dpkg/available') do
+  it { should contain 'Package: libdbd-mysql-perl' }        # Perl5 database interface to the MySQL database        
+  it { should contain 'Version: 4.025-1' }
+  it { should contain 'Package: libmysqlclient18:amd64' }   # MySQL database client library        
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: mysql-client-5.5' }         # MySQL database client binaries
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }         
+  it { should contain 'Package: mysql-client-core-5.5' }    # MySQL database core client binaries
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: mysql-common' }             # MySQL database common files, e.g. /etc/mysql/my.cnf          
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: mysql-server' }             # MySQL database server (metapackage depending on the latest version)
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: mysql-server-5.5' }         # MySQL database server binaries and system database setup
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: mysql-server-core-5.5' }    # MySQL database server binaries
+  it { should contain 'Version: 5.5.38-0ubuntu0.14.04.1' }
+  it { should contain 'Package: python-mysqldb' }           # Python interface to MySQL
+  it { should contain 'Version: 1.2.3-2ubuntu1' }
+end
+
+# CHECK PACKAGES - Docker
+describe file('/var/lib/dpkg/available') do
+  it { should contain 'Package: lxc-docker' }               # Linux container runtime
+  it { should contain 'Version: 1.2.0' }
+  it { should contain 'Package: lxc-docker-1.2.0' }         # Linux container runtime
+  it { should contain 'Version: 1.2.0' }
+end
+
 # CHECK PACKAGES - Required and Essentials
 describe file('/var/lib/dpkg/available') do
-	it { should contain 'Package: util-linux' }
-	it { should contain 'Version: 2.20.1-5.1ubuntu20'}
-	it { should contain 'Package: bash' }
+	it { should contain 'Package: util-linux' }          # Miscellaneous system utilities
+	it { should contain 'Version: 2.20.1-5.1ubuntu20' }
+	it { should contain 'Package: bash' }                # GNU Bourne Again SHell
 	it { should contain 'Version: 4.3-7ubuntu1' }
-	it { should contain 'Package: libc-bin' }
+	it { should contain 'Package: libc-bin' }            # Embedded GNU C Library: Binaries
 	it { should contain 'Version: 2.19-0ubuntu6' }
-  it { should contain 'Package: dpkg' }
+  it { should contain 'Package: dpkg' }                # Dpkg perl modules 
 	it { should contain 'Version: 1.17.5ubuntu5' }
-	it { should contain 'Package: gzip' }
+	it { should contain 'Package: gzip' }                # GNU compression utilities
 	it { should contain 'Version: 1.6-3ubuntu1' }
-	it { should contain 'Package: e2fsprogs' }
+	it { should contain 'Package: e2fsprogs' }           # ext2/ext3/ext4 file system utilities
 	it { should contain 'Version: 1.42.9-3ubuntu1' }
-	it { should contain 'Package: findutils' }
+	it { should contain 'Package: findutils' }           # utilities for finding files--find, xargs
 	it { should contain 'Version: 4.4.2-7' }
 	it { should contain 'Package: hostname' }
 	it { should contain 'Version: 3.15ubuntu1' }
@@ -329,9 +431,6 @@ end
 
 describe package('keystone') do
   it { should be_installed }
-end
-
-describe service('keystone') do
   it { should be_enabled   }
   it { should be_running   }
 end
@@ -343,18 +442,12 @@ end
 
 describe package('rabbitmq-server') do
   it { should be_installed }
-end
-
-describe service('rabbitmq-server') do
   it { should be_enabled   }
   it { should be_running   }
 end
 
 describe package('cinder-scheduler') do
   it { should be_installed }
-end
-
-describe service('cinder-scheduler') do
   it { should be_enabled   }
   it { should be_running   }
 end
